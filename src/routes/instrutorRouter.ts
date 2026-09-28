@@ -59,11 +59,11 @@ router.post("/", async (req: Request, res: Response) => {
 
 router.put("/:id", async (req: Request, res: Response) => {
     try {
-        const {titulo, description, completed } = req.body
+        const {nome, email} = req.body
 
         const instrutor = await prisma.instrutor.update({
             where: {id: Number(req.params.id) },
-            data: {titulo, description, completed }
+            data: {nome, email}
         })
          res.json(instrutor)
     }catch (error) {
